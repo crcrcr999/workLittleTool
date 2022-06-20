@@ -1,2 +1,2 @@
-Play_mp3==0.0.1
+playsound==1.3.0
 rpi_rf==0.9.7

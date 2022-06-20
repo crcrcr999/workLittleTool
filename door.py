@@ -19,10 +19,10 @@ def exithandler(signal, frame):
     rx.cleanup()
     tx.cleanup()
     sys.exit(0)
+signal.signal(signal.SIGINT, exithandler)
 
 logging.basicConfig(level=logging.INFO, datefmt='%Y-%m-%d %H:%M:%S',
                     format='%(asctime)-15s - [%(levelname)s] %(module)s: %(message)s', )
-signal.signal(signal.SIGINT, exithandler)
 rx = RFDevice(27)
 rx.enable_rx()
 tx = RFDevice(17)
