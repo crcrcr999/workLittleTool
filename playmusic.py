@@ -35,7 +35,7 @@ while True:
 		#if nowminute<23:
 			playEndMusic=False
 			musiclist=data_needed(upanPath)
-			randomint=random.randint(0,len(musiclist))
+			randomint=random.randint(0,len(musiclist)-1)
 			speakpath = upanPath+musiclist[randomint]
 			play(speakpath)
 			time.sleep(1)
