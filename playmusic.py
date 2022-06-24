@@ -24,12 +24,11 @@ def data_needed(filePath):
 
 #isworktime = lambda x,y: True if (x>=y[0] and x<y[1]) else False
 upanPath="/media/cr/MUSIC/"
-endMusicPath="end/范圣琦 - 回家 (萨克斯独奏).mp3"
+endMusicPath="end/huijia.mp3"
 playEndMusic=False
 #workrange=[13,20]
+string="";
 while True:
-	#nowhour = datetime.datetime.now().hour
-	#nowminute=datetime.datetime.now().minute
 	if os.path.exists(upanPath):
 		if worktime.timecalendar():
 		#if nowminute<23:
@@ -37,11 +36,14 @@ while True:
 			musiclist=data_needed(upanPath)
 			randomint=random.randint(0,len(musiclist)-1)
 			speakpath = upanPath+musiclist[randomint]
+			print ("\033[A\033[K\33[K\33[A")
+			string="\033[32;1m现在播放\033[0m:\033[33;1m:"+musiclist[randomint]+"\033[0m"
+			print(string)
 			play(speakpath)
 			time.sleep(1)
-	else:
-		if playEndMusic==False:
-			play(upanPath+endMusicPath)
-			playEndMusic=True
-		time.sleep(60)
+		else:
+			if playEndMusic==False:
+				play(upanPath+endMusicPath)
+				playEndMusic=True
+			time.sleep(60)
 	

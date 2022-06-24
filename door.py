@@ -36,10 +36,13 @@ while True:
             if rx.rx_code==15523:
                 logging.info( " 收到门铃 " + str(rx.rx_code))
                 logging.info( "\033[40;32;1m工作时间内开门\033[0m")
-                for i in range (5):
+                for i in range (10):
                     tx.tx_code(opendoorcode, protocol, pulselength)
                     time.sleep(0.1)
+                logging.info( "\033[40;32;1m发送完毕\033[0m")
+        time.sleep(0.01)
     else:
+         print("非工作时间")
          time.sleep(60)
 rx.cleanup()
 tx.cleanup()
