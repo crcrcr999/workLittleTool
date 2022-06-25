@@ -42,7 +42,7 @@ while True:
                 logging.info( "\033[40;32;1m发送完毕\033[0m")
         time.sleep(0.01)
     else:
-         print("非工作时间")
+         #print("非工作时间")
          time.sleep(60)
 rx.cleanup()
 tx.cleanup()
